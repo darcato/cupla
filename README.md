@@ -48,6 +48,7 @@ Usage
 - Checkout the [tuning guide](doc/TuningGuide.md) for a step further to performance
   portable code.
 
+[cupla can be used as a standalone header-only library](doc/StandaloneHeader.md)
 
 Authors
 -------

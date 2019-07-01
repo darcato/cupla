@@ -37,6 +37,7 @@ cuplaGetErrorName(cuplaError_t e)
     return CuplaErrorCode::message_cstr(e);
 }
 
+CUPLA_HEADER_ONLY_FUNC_SPEC
 const char *
 cuplaGetErrorString(cuplaError_t e)
 {

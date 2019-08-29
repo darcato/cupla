@@ -157,4 +157,24 @@ cuplaMemcpy3D(
     const cuplaMemcpy3DParms * const p
 );
 
+CUPLA_HEADER_ONLY_FUNC_SPEC
+cuplaError_t
+cuplaHostAlloc(
+    void **ptrptr,
+    size_t size,
+    unsigned int flags
+)
+{
+#if ALPAKA_ACC_GPU_CUDA_ENABLED == 1
+  #undef cudaHostAlloc
+  // if compiling for CUDA, use the native allocation functions
+  auto tmp = (cuplaError_t) cudaHostAlloc(ptrptr, size, flags);
+  #define cudaHostAlloc(...) cuplaHostAlloc(__VA_ARGS__)
+  return tmp;
+#else
+  // otherwise, use cuplaMallocHost
+  return cuplaMallocHost(ptrptr, size);
+#endif
+}
+
 } //namespace CUPLA_ACCELERATOR_NAMESPACE

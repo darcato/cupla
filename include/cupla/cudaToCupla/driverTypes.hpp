@@ -24,6 +24,8 @@
 #include "cupla/datatypes/Array.hpp"
 
 #define __syncthreads(...) ::alpaka::block::sync::syncBlockThreads(acc)
+#define __syncthreads_or(...) ::alpaka::block::sync::syncBlockThreadsPredicate<::alpaka::block::sync::op::LogicalOr>(acc, __VA_ARGS__)
+#define __syncthreads_and(...) ::alpaka::block::sync::syncBlockThreadsPredicate<::alpaka::block::sync::op::LogicalAnd>(acc, __VA_ARGS__)
 
 #define cudaSuccess cuplaSuccess
 #define cudaErrorMemoryAllocation cuplaErrorMemoryAllocation

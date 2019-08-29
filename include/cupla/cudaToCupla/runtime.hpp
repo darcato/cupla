@@ -27,6 +27,7 @@
 #define cudaMallocPitch(...) cuplaMallocPitch(__VA_ARGS__)
 #define cudaMalloc3D(...) cuplaMalloc3D(__VA_ARGS__)
 #define cudaMallocHost(...) cuplaMallocHost(__VA_ARGS__)
+#define cudaHostAlloc(...) cuplaHostAlloc(__VA_ARGS__)
 
 #define cudaGetErrorName(...) cuplaGetErrorName(__VA_ARGS__)
 #define cudaGetErrorString(...) cuplaGetErrorString(__VA_ARGS__)
